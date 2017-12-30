@@ -1,14 +1,29 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var data = DateTime.Now.Ticks;        
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    
+    @Scripts.Render("~/Content/jQuery/jquery-3.2.1.js")
+    @Scripts.Render("~/Content/Tether/tether.js")
+    @Scripts.Render("~/Content/Bootstrap/bootstrap.js")
+    
+
+    @Styles.Render("~/Content/Bootstrap/bootstrap.css")
+    @Styles.Render("~/Content/Bootstrap/bootstrap-grid.css")
+    @Styles.Render("~/Content/Bootstrap/bootstrap-reboot.css")   
+    @Styles.Render("~/Content/Tether/tether.css")
 
 </head>
 <body>
+
+
+@*<body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -28,7 +43,7 @@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </div>
+    </div>*@
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -37,8 +52,8 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)*@
 </body>
 </html>
