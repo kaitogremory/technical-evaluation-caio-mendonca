@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Web.Controllers
 {
-    public class EmployeeController : Controller
+    public class EmployeeRegisterController : Controller
     {
         public ActionResult Index()
         {

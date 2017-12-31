@@ -2,12 +2,61 @@
     ViewBag.Title = "Listar Empregados";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+<div class="section">
+    <div class="container">        
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="page-header text-primary">Lista de Empregados</h2>
+                @*@Html.Partial("ModalLoad")*@      
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover ng-hide">
+                        <thead>
+                            <tr class="header-row">
+                                <th>Id</th>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>Sexo</th>
+                                <th>Data Nascimento</th>
+                                <th>Cargo</th>
+                                <th>Quantidade Dependentes</th>                 
+                                <th class="text-center">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Caio Mendonça</td>
+                                <td>kaito.mendonca@gmail.com</td>
+                                <td>Masculino</td>
+                                <td>15/11/1992</td>
+                                <td>Cargo</td>
+                                <td>4</td>
+                                
+                                <td class="text-center">
+                                    <button class="btn btn-primary btn-sm" title="Editar">
+                                        <i class="fa fa-pencil fa-1g"></i>
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" title="Excluir">
+                                        <i class="fa fa-times fa-4g"></i>
+                                    </button>
+                                </td>
+
+                            </tr>
+                            <tr></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr></tr>
+                        </tfoot>
+                    </table>                    
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    list
-</div>
+@Scripts.Render("~/Content/Script/ListEmployee.js")
