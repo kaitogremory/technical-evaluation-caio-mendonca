@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common
+namespace Common.Entities
 {
-    public class Class1
+    public class Role 
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -161,6 +161,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeeRegisterController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\Base\ApplicationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -172,8 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\TextFile1.txt" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Bootstrap\bootstrap-grid.css" />
     <Content Include="Content\Bootstrap\bootstrap-reboot.css" />
     <Content Include="Content\Bootstrap\bootstrap.bundle.js" />
@@ -182,13 +181,13 @@
     <Content Include="Content\FontAwesome\css\font-awesome.min.css" />
     <Content Include="Content\FontAwesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\jQuery\jquery-3.2.1.js" />
+    <Content Include="Content\Script\RegisterEmployee.js" />
     <Content Include="Content\Script\ListEmployee.js" />
     <Content Include="Content\Tether\tether.css" />
     <Content Include="Content\Tether\tether.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Models\HtmlPage1.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -263,10 +262,16 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
-    <Content Include="Views\Employee\Register.cshtml" />
     <Content Include="Views\Shared\ModalLoad.cshtml" />
+    <Content Include="Views\EmployeeRegister\Index.cshtml" />
+    <Content Include="Views\Shared\Employee\EmployeeTable.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{824f2a57-088f-40d9-86e4-69e6ed4642de}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

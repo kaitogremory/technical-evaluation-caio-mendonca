@@ -8,8 +8,9 @@ namespace Web.Controllers
 {
     public class EmployeeRegisterController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
+            ViewBag.Title = id.HasValue ? "Editar" : "Novo";
             return View();
         }       
     }
