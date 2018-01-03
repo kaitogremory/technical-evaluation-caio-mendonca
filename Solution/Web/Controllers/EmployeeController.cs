@@ -18,14 +18,9 @@ namespace Web.Controllers
 
         public JsonResult GetEmployeeTable()
         {
-            dynamic model = new System.Dynamic.ExpandoObject();
-            model.EmployeeList = new List<Employee>() 
-            { 
-                new Employee() { Id = 1, Name = "Caio Mendonça", Birth = new DateTime(), Email = "kaito.mendonca@gmail.com", Genre = EnumGenre.Male, Role = new Role() {Id = 1, Name = "Programmer"} },
-                new Employee() { Id = 2, Name = "Kurogane Kaito", Birth = new DateTime(), Email = "kurogane.kaito@gmail.com", Genre = EnumGenre.Female, Role = new Role() {Id = 2, Name = "Tester"} }
-            };
+            List<Employee> model = base.GetEmployeeList();
 
-            string tableHtml = RenderRazorViewToString("Employee/EmployeeTable", model);
+            string tableHtml = base.RenderRazorViewToString("Employee/EmployeeTable", model);
 
             return new JsonResult
             {

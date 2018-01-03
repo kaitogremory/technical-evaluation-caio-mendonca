@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace Common.Entities
 {
+
     public class Employee
     {
+        public Employee() 
+        {
+            this.DepedentList = new List<Dependent>();
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }

@@ -6,44 +6,48 @@
 }
 
 <div class="table-responsive">
-    <table class="table table-bordered table-striped table-hover ng-hide">
-        <thead>
-            <tr class="header-row">
-                <th>Id</th>
-                <th>Nome</th>
-                <th>E-mail</th>
-                <th>Sexo</th>
-                <th>Data Nascimento</th>
-                <th>Cargo</th>
-                <th>Quantidade Dependentes</th>                 
-                <th class="text-center">Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var emp in employeeList)
-            {
-                <tr>
-                    <td>@emp.Id</td>
-                    <td>@emp.Name</td>
-                    <td>@emp.Email</td>
-                    <td>@EnumConverter.GetDisplayName(emp.Genre)</td>
-                    <td>@emp.Birth.ToShortDateString()</td>
-                    <td>@emp.Role.Name</td>
-                    <td>@emp.DepedentList.Count()</td>                                
-                    <td class="text-center">
-                        <button class="btn btn-primary btn-sm" title="Editar">
-                            <i class="fa fa-pencil fa-1g"></i>
-                        </button>
-
-                        <button class="btn btn-danger btn-sm" title="Excluir">
-                            <i class="fa fa-times fa-4g"></i>
-                        </button>
-                    </td>
+    @if(employeeList.Count > 0)
+    { 
+        <table class="table table-bordered table-striped table-hover ng-hide">
+            <thead>
+                <tr class="header-row">
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Sexo</th>
+                    <th>Data Nascimento</th>
+                    <th>Cargo</th>
+                    <th>Quantidade Dependentes</th>                 
+                    <th class="text-center">Ações</th>
                 </tr>
-            }                        
-        </tbody>
-        <tfoot>
-            <tr></tr>
-        </tfoot>
-    </table>                    
+            </thead>
+            <tbody>
+                @foreach (var emp in employeeList)
+                {
+                    <tr>
+                        <td>@emp.Id</td>
+                        <td>@emp.Name</td>
+                        <td>@emp.Email</td>
+                        <td>@EnumConverter.GetDisplayName(emp.Genre)</td>
+                        <td>@emp.Birth.ToShortDateString()</td>
+                        <td>@emp.Role.Name</td>
+                        <td>@emp.DepedentList.Count()</td>                                
+                        <td class="text-center">
+                            <button class="btn btn-primary btn-sm" title="Editar">
+                                <i class="fa fa-pencil fa-1g"></i>
+                            </button>
+
+                            <button class="btn btn-danger btn-sm" title="Excluir">
+                                <i class="fa fa-times fa-4g"></i>
+                            </button>
+                        </td>
+                    </tr>
+                }                        
+            </tbody>            
+        </table>       
+    }
+    else
+    {
+        <span>Nenhum funcionário cadastrado</span>
+    }             
 </div>            
