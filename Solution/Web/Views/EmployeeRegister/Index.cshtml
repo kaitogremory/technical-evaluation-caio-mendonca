@@ -20,6 +20,8 @@
         </div>
         
         <form>
+            <input type="hidden" value="@employee.Id" id="inputId">            
+
             <div class="form-row">
                 <div class="col">
                     <label for="inputName">Nome:</label>
@@ -41,8 +43,8 @@
                            value="@birth">
                 </div>
                 <div class="col">
-                    <label for="inputGender">Sexo:</label>
-                    <select id="inputGender" class="form-control form-control-sm">
+                    <label for="inputGenre">Sexo:</label>
+                    <select id="inputGenre" class="form-control form-control-sm">
                         <option value="" disabled selected>Selecione</option>
                         @foreach (EnumGenre _enum in Enum.GetValues(typeof(EnumGenre)).Cast<EnumGenre>().ToList())
                         {

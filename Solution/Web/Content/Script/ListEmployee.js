@@ -50,8 +50,7 @@ function ConfirmDelete(id) {
 function Delete(id) {
     $.ajax({
         url: serviceBase + "Employee/Delete",
-        data: { idEmployee: id },
-        type: "GET",
+        data: { idEmployee: id },        
         dataType: "json",
     })
      .done(function (json) {

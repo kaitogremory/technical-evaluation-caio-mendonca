@@ -34,7 +34,7 @@ namespace Web.Controllers
                     },
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
-        }
+        }        
 
         public JsonResult Delete(int idEmployee)
         {

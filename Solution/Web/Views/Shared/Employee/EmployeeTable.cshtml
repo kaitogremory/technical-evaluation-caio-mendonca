@@ -14,7 +14,7 @@
                     <th>Id</th>
                     <th>Nome</th>
                     <th>E-mail</th>
-                    <th>Sexo</th>
+                    <th>Gênero</th>
                     <th>Data Nascimento</th>
                     <th>Cargo</th>
                     <th>Quantidade Dependentes</th>                 
@@ -29,7 +29,7 @@
                         <td>@emp.Name</td>
                         <td>@emp.Email</td>
                         <td>@EnumConverter.GetDisplayName(emp.Genre)</td>
-                        <td>@emp.Birth.ToShortDateString()</td>
+                        <td>@emp.Birth.Value.ToShortDateString()</td>
                         <td>@emp.Role.Name</td>
                         <td>@emp.DepedentList.Count()</td>                                
                         <td class="text-center">
