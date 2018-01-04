@@ -1,4 +1,6 @@
-﻿using Common.Entities;
+﻿using Business.Base;
+using Business.Entities;
+using Common.Entities;
 using Common.Enums;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,8 @@ namespace Web.Controllers
 {
     public class EmployeeController : ApplicationController
     {
+        private EmployeeBusinessFacade _EmployeeBusinessFacade = BusinessFactory.GetInstance().Get<EmployeeBusinessFacade>();
+
         public ActionResult Index()
         {
             return View();
@@ -18,7 +22,7 @@ namespace Web.Controllers
 
         public JsonResult GetEmployeeTable()
         {
-            List<Employee> model = base.GetEmployeeList();
+            List<Employee> model = _EmployeeBusinessFacade.GetEmployeeList();
 
             string tableHtml = base.RenderRazorViewToString("Employee/EmployeeTable", model);
 

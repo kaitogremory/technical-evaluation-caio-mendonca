@@ -158,6 +158,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <None Include="unity.config">
+      <SubType>Designer</SubType>
+    </None>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeeRegisterController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -270,6 +273,10 @@
     <Content Include="Views\Shared\Employee\EmployeeTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{39d3338b-ef50-44f4-a6ea-4a102b3dc4f4}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{824f2a57-088f-40d9-86e4-69e6ed4642de}</Project>
       <Name>Common</Name>
