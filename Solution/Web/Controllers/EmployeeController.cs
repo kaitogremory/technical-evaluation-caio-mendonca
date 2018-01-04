@@ -35,5 +35,23 @@ namespace Web.Controllers
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
+
+        public JsonResult Delete(int idEmployee)
+        {
+            //to-do excluir o empregado
+
+            return new JsonResult
+            {
+                Data =
+                    new
+                    {
+                        register = new
+                        {
+                            message = "Empregado excluído com sucesso!"
+                        }
+                    },
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        }
     }
 }

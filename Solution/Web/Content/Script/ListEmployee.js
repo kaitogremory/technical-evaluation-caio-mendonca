@@ -12,11 +12,8 @@ function GetEmployeeTable() {
      .done(function (json) {                  
          $('#tableBlockDiv').html(json.register.tableHtml);
      })
-     .fail(function (xhr, status, errorThrown) {         
-         alert("Sorry, there was a problem!");
-         console.log("Error: " + errorThrown);
-         console.log("Status: " + status);
-         console.dir(xhr);
+     .fail(function (xhr, status, errorThrown) {
+         ShowErrorMessage(errorThrown, status);
      })
      .always(function (xhr, status) {         
          
@@ -27,7 +24,7 @@ function Edit(id) {
     window.location = "EmployeeRegister/Index/" + id;        
 }
 
-function Delete(id) {
+function ConfirmDelete(id) {
     $.confirm({
         title: 'Atenção!',
         content: 'Dejesa realmente excluir este empregado? Essa ação não poderá ser desfeita',
@@ -38,7 +35,8 @@ function Delete(id) {
             Sim:
             {
                 btnClass: 'btn-primary',
-                action: function () {                    
+                action: function () {
+                    Delete(id);
                 }
             },
             Nao:
@@ -46,5 +44,44 @@ function Delete(id) {
                 text: 'Não'
             }
         }
+    });
+}
+
+function Delete(id) {
+    $.ajax({
+        url: serviceBase + "Employee/Delete",
+        data: { idEmployee: id },
+        type: "GET",
+        dataType: "json",
+    })
+     .done(function (json) {
+         ShowSucessMessage(json.register.message);
+     })
+     .fail(function (xhr, status, errorThrown) {
+         ShowErrorMessage(errorThrown, status);
+     })
+     .always(function (xhr, status) {
+
+     });
+}
+
+function ShowErrorMessage(errorThrown, status) {
+    $.alert({
+        title: 'Erro!',
+        content: 'Ocorreu um erro! Entre em contato com o suporte técnico.',
+        type: 'red',
+        theme: 'material'
+    });
+
+    console.log("Error: " + errorThrown);
+    console.log("Status: " + status);
+}
+
+function ShowSucessMessage(msg) {
+    $.alert({
+        title: 'Sucesso!',
+        content: msg,
+        type: 'green',
+        theme: 'material'
     });
 }
