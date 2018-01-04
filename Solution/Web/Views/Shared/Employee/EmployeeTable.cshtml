@@ -11,14 +11,14 @@
         <table class="table table-bordered table-striped table-hover ng-hide">
             <thead>
                 <tr class="header-row">
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Gênero</th>
-                    <th>Data Nascimento</th>
-                    <th>Cargo</th>
-                    <th>Quantidade Dependentes</th>                 
-                    <th class="text-center">Ações</th>
+                    <th style="width: 5%;">Id</th>
+                    <th style="width: 20%;">Nome</th>
+                    <th style="width: 20%;">E-mail</th>
+                    <th style="width: 10%;">Gênero</th>
+                    <th style="width: 10%;">Nascimento</th>
+                    <th style="width: 10%;">Cargo</th>
+                    <th style="width: 10%;">Dependentes</th>                 
+                    <th style="width: 15%;" class="text-center">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,11 +33,11 @@
                         <td>@emp.Role.Name</td>
                         <td>@emp.DepedentList.Count()</td>                                
                         <td class="text-center">
-                            <button class="btn btn-primary btn-sm" title="Editar" onclick="Edit('@emp.Id')">
+                            <button class="btn btn-primary btn-xs" title="Editar" onclick="Edit('@emp.Id')">
                                 <i class="fa fa-pencil fa-1g"></i>
                             </button>
 
-                            <button class="btn btn-danger btn-sm" title="Excluir" onclick="ConfirmDelete('@emp.Id')">
+                            <button class="btn btn-danger btn-xs" title="Excluir" onclick="ConfirmDelete('@emp.Id')">
                                 <i class="fa fa-times fa-4g"></i>
                             </button>
                         </td>
