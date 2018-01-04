@@ -1,5 +1,6 @@
 ﻿using Common.Entities;
 using Common.Enums;
+using Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Entities
 {
-    public class EmployeeDataAccess
+    public class EmployeeDataAccess : IEmployeeDataAccess
     {
         public List<Employee> GetEmployeeList()
         {
@@ -19,6 +20,31 @@ namespace DataAccess.Entities
             };
 
             return list;
+        }
+
+        public Employee GetEmployeeById(int idEmployee)
+        {
+            var _employee = new Employee()
+            {
+                Id = 2,
+                Birth = new DateTime(1992, 12, 15),
+                Email = "kaito.mendonca@gmail.com",
+                Genre = EnumGenre.Male,
+                Name = "Kaito",
+                Role = new Role() { Id = 2, Name = "Programmer" }
+            };
+
+            return _employee;
+        }
+        
+        public void Save(Employee register)
+        {
+
+        }
+
+        public void Delete(int idEmployee)
+        {
+
         }
     }
 }

@@ -1,7 +1,9 @@
-﻿using Business.Base;
+﻿//using Business.Base;
 using Business.Entities;
 using Common.Entities;
 using Common.Enums;
+using Common.Interfaces;
+using DataAccess.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +14,8 @@ using Web.Controllers.Base;
 namespace Web.Controllers
 {
     public class EmployeeController : ApplicationController
-    {
-        private EmployeeBusinessFacade _EmployeeBusinessFacade = BusinessFactory.GetInstance().Get<EmployeeBusinessFacade>();
+    {        
+        private EmployeeBusinessFacade _EmployeeBusinessFacade = new EmployeeBusinessFacade(new EmployeeDataAccess());
 
         public ActionResult Index()
         {

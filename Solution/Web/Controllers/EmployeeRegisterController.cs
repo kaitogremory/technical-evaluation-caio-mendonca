@@ -1,4 +1,6 @@
-﻿using Common.Entities;
+﻿using Business.Entities;
+using Common.Entities;
+using DataAccess.Entities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,20 +13,23 @@ namespace Web.Controllers
 {
     public class EmployeeRegisterController : ApplicationController
     {
+        private EmployeeBusinessFacade _EmployeeBusinessFacade = new EmployeeBusinessFacade(new EmployeeDataAccess());
+        private RoleBusinessFacade _RoleBusinessFacade = new RoleBusinessFacade(new RoleDataAccess());
+
         public ActionResult Index(int? id)
         {
             if(id.HasValue)
             {
                 ViewBag.Title = "Editar Empregado";
-                ViewBag.Employee = base.GetEmployeeById(id.Value);
+                ViewBag.Employee = _EmployeeBusinessFacade.GetEmployeeById(id.Value);
             }
             else
             {
                 ViewBag.Title = "Novo Empregado";
                 ViewBag.Employee = new Employee();
             }
-            
-            ViewBag.RoleList = base.GetRoleList();
+
+            ViewBag.RoleList = _RoleBusinessFacade.GetRoleList();
             
             return View();
         }

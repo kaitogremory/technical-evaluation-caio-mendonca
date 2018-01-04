@@ -71,12 +71,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\BaseConnectedBusinessFacade.cs" />
-    <Compile Include="Base\BaseBusinessFacade.cs" />
-    <Compile Include="Base\BusinessMethodManagementBehavior.cs" />
-    <Compile Include="Base\ContainerManager.cs" />
-    <Compile Include="Base\BusinessFactory.cs" />
-    <Compile Include="Base\RequiresTransactionAttribute.cs" />
+    <Compile Include="Entities\DependentBusinessFacade.cs" />
+    <Compile Include="Entities\RoleBusinessFacade.cs" />
     <Compile Include="Entities\EmployeeBusinessFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,7 +93,12 @@
       <Project>{824f2a57-088f-40d9-86e4-69e6ed4642de}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{53f55493-14b7-4d0b-a942-99cbb7c9827a}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

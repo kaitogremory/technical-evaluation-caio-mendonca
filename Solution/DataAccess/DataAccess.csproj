@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\DependentDataAccess.cs" />
+    <Compile Include="Entities\RoleDataAccess.cs" />
     <Compile Include="Entities\EmployeeDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
