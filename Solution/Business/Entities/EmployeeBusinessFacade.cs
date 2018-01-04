@@ -18,7 +18,7 @@ namespace Business.Entities
             _IEmployeeDataAccess = EmployeeDataAccess;
         }
 
-        public virtual List<Employee> GetEmployeeList()
+        public List<Employee> GetEmployeeList()
         {
             try
             {
@@ -32,7 +32,7 @@ namespace Business.Entities
             }
         }
 
-        public virtual Employee GetEmployeeById(int idEmployee)
+        public Employee GetEmployeeById(int idEmployee)
         {
             try
             {
@@ -42,6 +42,40 @@ namespace Business.Entities
 
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public void Save(Employee register)
+        {
+            try
+            {
+                if (register.Id > 0)
+                {
+                    //update
+                    _IEmployeeDataAccess.Update(register);
+                }
+                else
+                {
+                    //insert
+                    _IEmployeeDataAccess.Insert(register);
+                }
+            }
+            catch (Exception ex)
+            {                
+                throw ex;
+            }
+            
+        }
+
+        public void Delete(int idEmployee)
+        {
+            try
+            {
+                _IEmployeeDataAccess.Delete(idEmployee);
+            }
+            catch (Exception ex)
+            {                
                 throw ex;
             }
         }

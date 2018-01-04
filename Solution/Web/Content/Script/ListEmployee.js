@@ -54,7 +54,8 @@ function Delete(id) {
         dataType: "json",
     })
      .done(function (json) {
-         ShowSucessMessage(json.register.message);
+         GetEmployeeTable();
+         ShowSucessMessage(json.register.message);         
      })
      .fail(function (xhr, status, errorThrown) {
          ShowErrorMessage(errorThrown, status);

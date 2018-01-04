@@ -11,7 +11,8 @@ namespace Common.Interfaces
     {
         List<Employee> GetEmployeeList();
         Employee GetEmployeeById(int idEmployee);
-        void Save(Employee register);
+        void Insert(Employee register);
+        void Update(Employee register);
         void Delete(int idEmployee);
     }
 }

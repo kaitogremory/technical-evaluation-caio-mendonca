@@ -44,7 +44,7 @@ namespace Web.Controllers
 
         public JsonResult Delete(int idEmployee)
         {
-            //to-do excluir o empregado
+            _EmployeeBusinessFacade.Delete(idEmployee);
 
             return new JsonResult
             {

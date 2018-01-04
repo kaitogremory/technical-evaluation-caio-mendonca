@@ -36,13 +36,15 @@ namespace Web.Controllers
 
         public JsonResult Save(string jsonString)
         {
-            var register = JsonConvert.DeserializeObject<Employee>(jsonString);
-
-            //salvar o registro
+            var register = JsonConvert.DeserializeObject<Employee>(jsonString);            
 
             string errorMessage = Validate(register);
             bool error = errorMessage != String.Empty;
 
+            if (!error) 
+            {
+                _EmployeeBusinessFacade.Save(register);
+            }
 
             return new JsonResult
             {
