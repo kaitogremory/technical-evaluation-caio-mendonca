@@ -18,7 +18,7 @@ namespace Business.Entities
             _IDependentDataAccess = DependentDataAccess;
         }
 
-        public virtual List<Dependent> GetDependentList(int idEmployee)
+        public List<Dependent> GetDependentList(int idEmployee)
         {
             try
             {
@@ -28,6 +28,45 @@ namespace Business.Entities
             
             catch (Exception ex)
             {                
+                throw ex;
+            }
+        }
+
+        public void Insert(Dependent dep)
+        {
+            try
+            {
+                _IDependentDataAccess.Insert(dep);                
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void Delete(int idDependent)
+        {
+            try
+            {
+                _IDependentDataAccess.Delete(idDependent);
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteByEmployee(int idEmployee)
+        {
+            try
+            {
+                _IDependentDataAccess.DeleteByEmployee(idEmployee);
+            }
+
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

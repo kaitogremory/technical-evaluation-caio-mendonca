@@ -65,6 +65,23 @@ function CreateJSONObject() {
     if (obj.Role.Id == "") {
         obj.Role.Id = 0;
     }
+        
+    //populate dependent list
+    var trList = $('#tbodyDiv').children();
+    
+    for (var i = 0; i < trList.length; i++) {        
+        var elem = trList[i];
+        
+        var id = elem.children[0].textContent == "-" ? 0 : elem.children[0].textContent;
+
+        var Dependent = {
+            Id: id,
+            Name: elem.children[1].textContent,
+            IdEmployee: obj.Id
+        };
+
+        obj.DepedentList.push(Dependent)
+    }
 
     var objString = JSON.stringify(obj)
 
@@ -103,8 +120,9 @@ function OpenModal() {
     $("#ModalDependent").modal();
 }
 
-function CloseModal() {
-    $("#ModalDependent").slideUp();  
+function CloseModal() {    
+    $("#inputDependentName").val("");
+    $('#ModalDependent').modal('toggle');
 }
 
 function SaveDependent() {
@@ -112,7 +130,15 @@ function SaveDependent() {
 
     if(ValidateDependent(name))
     {
-        //salvar
+        CheckIfTableAlreadyExist();
+
+        var htmlLine = "<tr><td>-</td><td>" + name + "</td>";
+        htmlLine += "<td class='text-center'><button class='btn btn-danger btn-xs' title='Excluir' onclick='DeleteDependent(this)'>";
+        htmlLine += "<i class='fa fa-times fa-4g'></i></button>";
+        htmlLine += "</td></tr>"
+        $( "#tbodyDiv" ).append(htmlLine);
+
+        CloseModal();
     }    
 }
 
@@ -130,3 +156,21 @@ function ValidateDependent(name) {
         return true;
     }
 }
+
+function DeleteDependent(elem) {        
+    elem.parentElement.parentElement.remove();   
+}
+
+function CheckIfTableAlreadyExist() {    
+    var element = $("#originalTableDependentDiv")[0];
+
+    var tableExist = element.children.length > 0 && element.children[0].localName != "span";
+
+    if(!tableExist) 
+    {
+        var htmlTable = "<table class='table table-bordered table-striped table-hover'><thead class='thead-dark'><tr class='header-row'><th style='width: 10%'>Id</th><th style='width: 80%'>Nome</th><th style='width: 10%' class='text-center'>Ações</th></tr></thead><tbody id='tbodyDiv'></tbody></table>";
+        $("#originalTableDependentDiv").html(htmlTable);
+    }    
+}
+
+    

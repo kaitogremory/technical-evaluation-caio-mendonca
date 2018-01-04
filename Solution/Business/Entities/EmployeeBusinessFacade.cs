@@ -58,14 +58,40 @@ namespace Business.Entities
             try
             {
                 if (register.Id > 0)
-                {
-                    //update
+                {                    
                     _IEmployeeDataAccess.Update(register);
+
+                    if (register.DepedentList != null)
+                    {
+                        List<Dependent> dependentList = _dependentBusinessFacade.GetDependentList(register.Id).ToList();
+                        List<int> dependentIdList = dependentList.Select(y => y.Id).ToList();
+
+                        var listToInsert = register.DepedentList.Where(x => x.Id == 0).ToList();
+                        var listToDelete = dependentIdList.Where(x => !register.DepedentList.Any(a => a.Id == x)).ToList();
+
+                        foreach (var dep in listToInsert)
+                        {
+                            _dependentBusinessFacade.Insert(dep);
+                        }
+
+                        foreach (var IdDependent in listToDelete)
+                        {
+                            _dependentBusinessFacade.Delete(IdDependent);
+                        }
+                    }
                 }
                 else
-                {
-                    //insert
-                    _IEmployeeDataAccess.Insert(register);
+                {                    
+                    var idEmployee = _IEmployeeDataAccess.Insert(register);
+
+                    if (register.DepedentList != null)
+                    {
+                        foreach (var dep in register.DepedentList)
+                        {
+                            dep.IdEmployee = idEmployee;
+                            _dependentBusinessFacade.Insert(dep);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -79,6 +105,7 @@ namespace Business.Entities
         {
             try
             {
+                _dependentBusinessFacade.DeleteByEmployee(idEmployee);
                 _IEmployeeDataAccess.Delete(idEmployee);
             }
             catch (Exception ex)

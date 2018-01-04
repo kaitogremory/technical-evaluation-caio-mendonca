@@ -16,10 +16,10 @@
         <br />
         <div class="row">
             <div class="col-md-10 offset-md-1">
-                @if (dependentList.Count > 0)
-                {
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-striped table-hover ng-hide">
+                <div class="table-responsive" id="originalTableDependentDiv">
+                    @if (dependentList.Count > 0)
+                    {
+                        <table class="table table-bordered table-striped table-hover">
                             <thead class="thead-dark">
                                 <tr class="header-row">
                                     <th style="width: 10%">Id</th>
@@ -27,27 +27,27 @@
                                     <th style="width: 10%" class="text-center">Ações</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tbodyDiv">
                                 @foreach (var dp in dependentList)
                                 {
                                     <tr>
                                         <td>@dp.Id</td>
                                         <td>@dp.Name</td>
                                         <td class="text-center">
-                                            <button class="btn btn-danger btn-xs" title="Excluir" onclick="ConfirmDependentDelete('@dp.Id')">
+                                            <button class="btn btn-danger btn-xs" title="Excluir" onclick="DeleteDependent(this)">
                                                 <i class="fa fa-times fa-4g"></i>
                                             </button>
                                         </td>
                                     </tr>
                                 }
                             </tbody>
-                        </table>
-                    </div>
-                }
-                else
-                {
-                    <span>Nenhum dependente cadastrado</span>
-                }
+                        </table>                    
+                    }
+                    else
+                    {
+                        <span>Nenhum dependente cadastrado</span>
+                    }
+                </div>
             </div>
         </div>
 

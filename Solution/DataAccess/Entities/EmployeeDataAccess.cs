@@ -96,7 +96,7 @@ namespace DataAccess.Entities
             return register;
         }
         
-        public void Insert(Employee register)
+        public int Insert(Employee register)
         {
             SqlConnection SqlCon = new SqlConnection(Util.SqlConnection);
             SqlCommand command = new SqlCommand(Util.QueryInsertEmployee, SqlCon);                        
@@ -104,12 +104,16 @@ namespace DataAccess.Entities
             command.Parameters.Add("@ds_Email", SqlDbType.VarChar).Value = register.Email;
             command.Parameters.Add("@tp_Genre", SqlDbType.Int).Value = (int)register.Genre;
             command.Parameters.Add("@dt_Birth", SqlDbType.DateTime).Value = register.Birth;
-            command.Parameters.Add("@id_Role", SqlDbType.Int).Value = register.Role.Id;
+            command.Parameters.Add("@id_Role", SqlDbType.Int).Value = register.Role.Id;            
 
             try
             {
                 SqlCon.Open();
                 command.ExecuteNonQuery();
+
+                var idEmployee = Convert.ToInt32(command.ExecuteScalar());
+
+                return idEmployee;
             }
             catch (Exception ex)
             {
