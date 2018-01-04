@@ -12,6 +12,7 @@ namespace Business.Entities
     public class EmployeeBusinessFacade
     {
         private IEmployeeDataAccess _IEmployeeDataAccess;
+        private DependentBusinessFacade _dependentBusinessFacade = new DependentBusinessFacade(new DependentDataAccess());        
 
         public EmployeeBusinessFacade(IEmployeeDataAccess EmployeeDataAccess)
         {
@@ -23,6 +24,12 @@ namespace Business.Entities
             try
             {
                 var list = _IEmployeeDataAccess.GetEmployeeList();
+
+                foreach (var emp in list)
+                {
+                    emp.DepedentList = _dependentBusinessFacade.GetDependentList(emp.Id);
+                }
+
                 return list;
             }
             

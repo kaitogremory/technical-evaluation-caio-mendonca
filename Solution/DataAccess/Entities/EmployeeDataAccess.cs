@@ -61,7 +61,7 @@ namespace DataAccess.Entities
 
             SqlConnection SqlCon = new SqlConnection(Util.SqlConnection);
             SqlCommand command = new SqlCommand(Util.QueryGetEmployeeById, SqlCon);
-            command.Parameters.Add("@idEmployee", SqlDbType.Int).Value = idEmployee;
+            command.Parameters.Add("@id_Employee", SqlDbType.Int).Value = idEmployee;
 
             try
             {

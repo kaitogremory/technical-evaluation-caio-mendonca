@@ -9,7 +9,7 @@
     @if(employeeList.Count > 0)
     { 
         <table class="table table-bordered table-striped table-hover ng-hide">
-            <thead>
+            <thead class="thead-dark">
                 <tr class="header-row">
                     <th style="width: 5%;">Id</th>
                     <th style="width: 20%;">Nome</th>
@@ -17,7 +17,7 @@
                     <th style="width: 10%;">Gênero</th>
                     <th style="width: 10%;">Nascimento</th>
                     <th style="width: 10%;">Cargo</th>
-                    <th style="width: 10%;">Dependentes</th>                 
+                    <th style="width: 10%;">Dependentes</th>
                     <th style="width: 15%;" class="text-center">Ações</th>
                 </tr>
             </thead>
@@ -31,7 +31,7 @@
                         <td>@EnumConverter.GetDisplayName(emp.Genre)</td>
                         <td>@emp.Birth.Value.ToShortDateString()</td>
                         <td>@emp.Role.Name</td>
-                        <td>@emp.DepedentList.Count()</td>                                
+                        <td class="text-center">@emp.DepedentList.Count()</td>                                
                         <td class="text-center">
                             <button class="btn btn-primary btn-xs" title="Editar" onclick="Edit('@emp.Id')">
                                 <i class="fa fa-pencil fa-1g"></i>

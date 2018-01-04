@@ -1,4 +1,28 @@
-﻿function Save() {
+﻿$(document).ready(function () {
+    GetDependentTable();   
+});
+
+function GetDependentTable() {    
+    var idEmployee = $('#inputId').val();
+
+    $.ajax({
+        url: serviceBase + "EmployeeRegister/GetDependentTable",    
+        data: { idEmployee: idEmployee },
+        type: "GET",
+        dataType: "json",
+    })
+     .done(function (json) {                  
+         $('#dependentBlockList').html(json.register.tableHtml);
+     })
+     .fail(function (xhr, status, errorThrown) {
+         ShowErrorMessage(errorThrown, status);
+     })
+     .always(function (xhr, status) {         
+         
+     });
+}
+
+function Save() {
     var jsonObjectString = CreateJSONObject();
 
     $.ajax({
@@ -27,6 +51,7 @@
 
      });      
 }
+
 function CreateJSONObject() {    
     var obj = {};
     obj.Id = $('#inputId').val();
@@ -72,4 +97,36 @@ function ShowErrorMessage(errorThrown, status) {
 
     console.log("Error: " + errorThrown);
     console.log("Status: " + status);
+}
+
+function OpenModal() {
+    $("#ModalDependent").modal();
+}
+
+function CloseModal() {
+    $("#ModalDependent").slideUp();  
+}
+
+function SaveDependent() {
+    var name = $("#inputDependentName").val();
+
+    if(ValidateDependent(name))
+    {
+        //salvar
+    }    
+}
+
+function ValidateDependent(name) {
+    if(name == "") {
+        $.alert({
+            title: 'Erro!',
+            content: 'O campo nome é obrigatório.',
+            type: 'red',
+            theme: 'material'
+        });
+
+        return false;
+    } else {
+        return true;
+    }
 }

@@ -290,6 +290,8 @@
     <Content Include="Views\Shared\ModalLoad.cshtml" />
     <Content Include="Views\EmployeeRegister\Index.cshtml" />
     <Content Include="Views\Shared\Employee\EmployeeTable.cshtml" />
+    <Content Include="Views\EmployeeRegister\Modal.cshtml" />
+    <Content Include="Views\Shared\EmployeeRegister\DependentTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">

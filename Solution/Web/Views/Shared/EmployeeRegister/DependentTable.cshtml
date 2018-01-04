@@ -1,0 +1,63 @@
+﻿@using Common.Entities;
+@using Common.Util;
+
+@{
+    List<Dependent> dependentList = (List<Dependent>)ViewBag.model;
+}
+
+<div class="card">
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <h2 class="page-header text-primary dependent-header">Lista dependentes</h2>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                @if (dependentList.Count > 0)
+                {
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover ng-hide">
+                            <thead class="thead-dark">
+                                <tr class="header-row">
+                                    <th style="width: 10%">Id</th>
+                                    <th style="width: 80%">Nome</th>
+                                    <th style="width: 10%" class="text-center">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var dp in dependentList)
+                                {
+                                    <tr>
+                                        <td>@dp.Id</td>
+                                        <td>@dp.Name</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger btn-xs" title="Excluir" onclick="ConfirmDependentDelete('@dp.Id')">
+                                                <i class="fa fa-times fa-4g"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <span>Nenhum dependente cadastrado</span>
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="btn-submit">
+                    <button type="button" class="btn btn-primary btn-save" onclick="OpenModal()">Novo Dependente</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

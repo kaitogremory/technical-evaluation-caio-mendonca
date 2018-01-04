@@ -15,6 +15,7 @@ namespace Web.Controllers
     {
         private EmployeeBusinessFacade _EmployeeBusinessFacade = new EmployeeBusinessFacade(new EmployeeDataAccess());
         private RoleBusinessFacade _RoleBusinessFacade = new RoleBusinessFacade(new RoleDataAccess());
+        private DependentBusinessFacade _DependentBusinessFacade = new DependentBusinessFacade(new DependentDataAccess());
 
         public ActionResult Index(int? id)
         {
@@ -103,5 +104,25 @@ namespace Web.Controllers
 
             return errorMessage;
         }
+
+        public JsonResult GetDependentTable(int idEmployee)
+        {
+            List<Dependent> model = _DependentBusinessFacade.GetDependentList(idEmployee);                
+
+            string tableHtml = base.RenderRazorViewToString("EmployeeRegister/DependentTable", model);
+
+            return new JsonResult
+            {
+                Data =
+                    new
+                    {
+                        register = new
+                        {
+                            tableHtml = tableHtml
+                        }
+                    },
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        } 
     }
 }

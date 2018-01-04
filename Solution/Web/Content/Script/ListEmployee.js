@@ -4,8 +4,7 @@
 
 function GetEmployeeTable() {    
     $.ajax({
-        url: serviceBase + "Employee/GetEmployeeTable",
-        //data: { id: 123 },
+        url: serviceBase + "Employee/GetEmployeeTable",        
         type: "GET",
         dataType: "json",
     })

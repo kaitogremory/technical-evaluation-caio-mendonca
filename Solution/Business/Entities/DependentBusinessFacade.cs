@@ -18,11 +18,11 @@ namespace Business.Entities
             _IDependentDataAccess = DependentDataAccess;
         }
 
-        public virtual List<Dependent> GetDependentList()
+        public virtual List<Dependent> GetDependentList(int idEmployee)
         {
             try
             {
-                var list = _IDependentDataAccess.GetDependentList();
+                var list = _IDependentDataAccess.GetDependentList(idEmployee);
                 return list;
             }
             

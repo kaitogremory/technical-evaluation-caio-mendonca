@@ -9,6 +9,6 @@ namespace Common.Interfaces
 {
     public interface IDependentDataAccess
     {
-        List<Dependent> GetDependentList();        
+        List<Dependent> GetDependentList(int idEmployee);        
     }
 }

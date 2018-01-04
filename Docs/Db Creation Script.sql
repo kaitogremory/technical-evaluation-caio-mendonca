@@ -35,16 +35,6 @@ CREATE TABLE cm.Dependent (
 
 GO
 
-CREATE TABLE cm.Employee_Dependent (
-  id_Employee SMALLINT NOT NULL
-, id_Dependent SMALLINT NOT NULL
-
-, CONSTRAINT PK_Employee_Dependent PRIMARY KEY (id_Employee, id_Dependent) 
-, CONSTRAINT FK_Employee_Dependent_Employee FOREIGN KEY (id_Employee) REFERENCES cm.Employee (id_Employee)
-, CONSTRAINT FK_Employee_Dependent_Dependent FOREIGN KEY (id_Dependent) REFERENCES cm.Dependent (id_Dependent)
-)
-
-GO
 
 
 
