@@ -22,3 +22,29 @@ function GetEmployeeTable() {
          
      });
 }
+
+function Edit(id) {
+    window.location = "EmployeeRegister/Index/" + id;        
+}
+
+function Delete(id) {
+    $.confirm({
+        title: 'Atenção!',
+        content: 'Dejesa realmente excluir este empregado? Essa ação não poderá ser desfeita',
+        type: 'orange',
+        theme: 'material',
+        buttons:
+        {
+            Sim:
+            {
+                btnClass: 'btn-primary',
+                action: function () {                    
+                }
+            },
+            Nao:
+            {
+                text: 'Não'
+            }
+        }
+    });
+}

@@ -12,8 +12,19 @@ namespace Web.Controllers
     {
         public ActionResult Index(int? id)
         {
-            ViewBag.Title = id.HasValue ? "Editar Empregado" : "Novo Empregado";
+            if(id.HasValue)
+            {
+                ViewBag.Title = "Editar Empregado";
+                ViewBag.Employee = base.GetEmployeeById(id.Value);
+            }
+            else
+            {
+                ViewBag.Title = "Novo Empregado";
+                ViewBag.Employee = new Employee();
+            }
+            
             ViewBag.RoleList = base.GetRoleList();
+            
             return View();
         }       
     }

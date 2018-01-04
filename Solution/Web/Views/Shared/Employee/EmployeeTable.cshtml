@@ -2,7 +2,7 @@
 @using Common.Util;
 
 @{
-    List<Employee> employeeList = (List<Employee>)ViewBag.Model.EmployeeList;
+    List<Employee> employeeList = (List<Employee>)ViewBag.model;
 }
 
 <div class="table-responsive">
@@ -33,11 +33,11 @@
                         <td>@emp.Role.Name</td>
                         <td>@emp.DepedentList.Count()</td>                                
                         <td class="text-center">
-                            <button class="btn btn-primary btn-sm" title="Editar">
+                            <button class="btn btn-primary btn-sm" title="Editar" onclick="Edit('@emp.Id')">
                                 <i class="fa fa-pencil fa-1g"></i>
                             </button>
 
-                            <button class="btn btn-danger btn-sm" title="Excluir">
+                            <button class="btn btn-danger btn-sm" title="Excluir" onclick="Delete('@emp.Id')">
                                 <i class="fa fa-times fa-4g"></i>
                             </button>
                         </td>

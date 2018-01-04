@@ -1,4 +1,5 @@
 ﻿using Common.Entities;
+using Common.Enums;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,6 +32,21 @@ namespace Web.Controllers.Base
             };
 
             return list;
+        }
+
+        protected Employee GetEmployeeById(int id)
+        {
+            var _employee = new Employee()
+            {
+                Id = 2,
+                Birth = new DateTime(1992, 12, 15),
+                Email = "kaito.mendonca@gmail.com",
+                Genre = EnumGenre.Male,
+                Name = "Kaito",
+                Role = new Role() { Id = 2, Name = "Programmer"}
+            };
+
+            return _employee;
         }
         #endregion
 

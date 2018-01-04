@@ -178,8 +178,11 @@
     <Content Include="Content\Bootstrap\bootstrap.bundle.js" />
     <Content Include="Content\Bootstrap\bootstrap.css" />
     <Content Include="Content\Bootstrap\bootstrap.js" />
+    <Content Include="Content\css\site.css" />
     <Content Include="Content\FontAwesome\css\font-awesome.min.css" />
     <Content Include="Content\FontAwesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\jQueryConfirm\jquery-confirm.min.css" />
+    <Content Include="Content\jQueryConfirm\jquery-confirm.min.js" />
     <Content Include="Content\jQuery\jquery-3.2.1.js" />
     <Content Include="Content\Script\RegisterEmployee.js" />
     <Content Include="Content\Script\ListEmployee.js" />
